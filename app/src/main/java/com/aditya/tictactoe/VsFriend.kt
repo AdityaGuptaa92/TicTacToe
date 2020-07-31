@@ -26,8 +26,8 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
-        textViewPlayer1 = findViewById(R.id.text_view_p1)
-        textViewPlayer2 = findViewById(R.id.text_view_p2)
+        textViewPlayer1 = findViewById(R.id.field_player1)
+        textViewPlayer2 = findViewById(R.id.field_player2)
 
         //DialogBox starts
         val dialog = AlertDialog.Builder(this)
@@ -50,8 +50,8 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                     customDialog.dismiss()
                     p1 = player1.text.toString()
                     p2 = player2.text.toString()
-                    text_view_p1.text = "$p1(X):0"
-                    text_view_p2.text = "$p2(O):0"
+                    field_player1.text = "$p1(X):0"
+                    field_player2.text = "$p2(O):0"
                 }
             }
         }
@@ -70,7 +70,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                 buttons[i][j]?.setOnClickListener(this)
             }
         }
-        val buttonReset = findViewById<Button>(R.id.button_reset)
+        val buttonReset = findViewById<Button>(R.id.button_reset_friend)
         buttonReset.setOnClickListener { resetGame() }
     }
 
@@ -155,8 +155,8 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     private fun resetGame() {
         player1Points = 0
         player2Points = 0
-        text_view_p1.text = "$p1(X):0"
-        text_view_p2.text = "$p2(O):0"
+        field_player1.text = "$p1(X):0"
+        field_player2.text = "$p2(O):0"
         updatePointsText()
         resetBoard()
     }

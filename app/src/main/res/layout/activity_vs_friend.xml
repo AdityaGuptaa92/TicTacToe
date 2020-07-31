@@ -2,22 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/layout_friend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VsFriend">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/score_board_friend"
         android:layout_width="409dp"
         android:layout_height="246dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/playing_board_friend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/text_view_p1"
+            android:id="@+id/field_player1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_view_p2"
+            android:id="@+id/field_player2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -57,13 +57,13 @@
             android:text="Player:0"
             android:textColor="@android:color/black"
             android:textSize="22sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_view_p1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/field_player1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toEndOf="@+id/view" />
 
         <Button
-            android:id="@+id/button_reset"
+            android:id="@+id/button_reset_friend"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -73,13 +73,13 @@
             android:text="Reset"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_save_friend"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.066"
-            app:layout_constraintStart_toEndOf="@+id/button" />
+            app:layout_constraintStart_toEndOf="@+id/button_save_friend" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_save_friend"
             android:layout_width="110dp"
             android:layout_height="48dp"
             android:layout_marginStart="72dp"
@@ -92,7 +92,7 @@
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_p1"
+            app:layout_constraintTop_toBottomOf="@+id/field_player1"
             app:layout_constraintVertical_bias="0.19" />
 
         <TextView
@@ -110,13 +110,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/playing_board_friend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        app:layout_constraintTop_toBottomOf="@+id/score_board_friend">
 
         <LinearLayout
             android:id="@+id/linear_1"
