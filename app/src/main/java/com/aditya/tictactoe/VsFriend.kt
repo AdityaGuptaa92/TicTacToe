@@ -122,14 +122,14 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
     private fun player1Wins() {
         player1Points++
-        Toast.makeText(this, "$p1 wins!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "$p1 won!", Toast.LENGTH_SHORT).show()
         updatePointsText()
         resetBoard()
     }
 
     private fun player2Wins() {
         player2Points++
-        Toast.makeText(this, "$p2 wins!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "$p2 won!", Toast.LENGTH_SHORT).show()
         updatePointsText()
         resetBoard()
     }

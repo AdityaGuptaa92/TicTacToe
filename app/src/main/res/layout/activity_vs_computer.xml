@@ -54,7 +54,7 @@
             android:layout_marginEnd="30dp"
             android:fontFamily="@font/roboto_mono"
             android:freezesText="true"
-            android:text="Player:0"
+            android:text="Computer:0"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/field_player"
