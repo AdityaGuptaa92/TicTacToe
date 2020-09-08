@@ -1,4 +1,4 @@
-package com.aditya.tictactoe
+package com.aditya.tictactoe.vsfriend
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -10,9 +10,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.aditya.tictactoe.Dashboard
+import com.aditya.tictactoe.R
 import kotlinx.android.synthetic.main.activity_vs_friend.*
 
 class VsFriend : AppCompatActivity(), View.OnClickListener {
+
+
     private val buttons = Array(3) { arrayOfNulls<Button>(3) }
     private var player1Turn = true
     private var roundCount = 0
@@ -20,12 +26,14 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     private var player2Points = 0
     private var textViewPlayer1: TextView? = null
     private var textViewPlayer2: TextView? = null
-    var p1=""
-    var p2=""
+    private var p1=""
+    private var p2=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
+
+
         textViewPlayer1 = findViewById(R.id.field_player1)
         textViewPlayer2 = findViewById(R.id.field_player2)
 

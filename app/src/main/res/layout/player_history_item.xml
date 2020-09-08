@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+
+        <TextView
+            android:id="@+id/text_view_player_one_name"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="AAAAAAAA"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/text_view_vs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vs."
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:fontFamily="@font/roboto_mono"
+            android:textStyle="italic"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@id/text_view_player_one_name"/>
+
+        <TextView
+            android:id="@+id/text_view_player_second_name"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_toEndOf="@id/text_view_vs"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_mono"
+            android:textStyle="bold"
+            android:text="AAAAAAAA"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/text_view_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_player_one_name"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="90dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Score:100-100"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/text_view_player_won"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_score"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="100dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="AAAAAAAA won!"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -5,7 +5,7 @@
     android:id="@+id/layout_computer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VsComputer">
+    tools:context=".vscomputer.VsComputer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/score_board_computer"

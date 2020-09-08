@@ -5,7 +5,7 @@
     android:id="@+id/layout_friend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VsFriend">
+    tools:context=".vsfriend.VsFriend">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/score_board_friend"
