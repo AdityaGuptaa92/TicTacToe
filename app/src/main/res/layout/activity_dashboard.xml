@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard">
+    tools:context=".homepage.Dashboard">
 
     <TextView
         android:id="@+id/textView2"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/vs_friend"
+        android:id="@+id/button_vs_friend"
         android:layout_width="118dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -31,12 +31,12 @@
         android:text="vs Friend"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/vs_computer"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_vs_computer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/vs_computer" />
+        app:layout_constraintStart_toEndOf="@+id/button_vs_computer" />
 
     <Button
-        android:id="@+id/vs_computer"
+        android:id="@+id/button_vs_computer"
         android:layout_width="118dp"
         android:layout_height="50dp"
         android:layout_marginStart="64dp"
@@ -64,5 +64,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.213" />
+
+    <Button
+        android:id="@+id/button_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:text="Show History"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

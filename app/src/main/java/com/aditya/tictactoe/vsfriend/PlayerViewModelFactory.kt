@@ -5,10 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import java.lang.IllegalArgumentException
 
-class PlayerViewModelFactory(private var application: Application): ViewModelProvider.Factory {
+@Suppress("UNCHECKED_CAST")
+class PlayerViewModelFactory(private var application: Application) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(HistoryViewModel::class.java)){
-            return HistoryViewModel(application) as T
+        if (modelClass.isAssignableFrom(PlayerHistoryViewModel::class.java)) {
+            return PlayerHistoryViewModel(application) as T
         }
         throw IllegalArgumentException("ViewModel not found")
     }

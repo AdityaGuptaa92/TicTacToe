@@ -12,8 +12,8 @@
         <activity android:name=".vsfriend.VsPlayerHistory"></activity>
         <activity android:name=".vsfriend.VsFriend" />
         <activity android:name=".vscomputer.VsComputer" />
-        <activity android:name=".Dashboard" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".homepage.Dashboard" />
+        <activity android:name=".homepage.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

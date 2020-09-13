@@ -87,7 +87,7 @@
             android:layout_marginBottom="80dp"
             android:background="@drawable/custom_button_black"
             android:fontFamily="@font/poppins_regular"
-            android:text="SAVE AND EXIT"
+            android:text="SAVE AND RESET"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -127,40 +127,40 @@
 
             <Button
                 android:id="@+id/button_00"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_01"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_02"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
         </LinearLayout>
@@ -174,40 +174,40 @@
 
             <Button
                 android:id="@+id/button_10"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_11"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_12"
-                android:layout_marginBottom="1dp"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
         </LinearLayout>
@@ -221,37 +221,37 @@
 
             <Button
                 android:id="@+id/button_20"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_21"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
 
             <Button
                 android:id="@+id/button_22"
-                android:fontFamily="@font/roboto_mono"
                 android:layout_width="135dp"
                 android:layout_height="135dp"
-                android:background="@drawable/custom_button_tictactoe_keys"
-                android:layout_marginRight="1dp"
                 android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_tictactoe_keys"
+                android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
                 android:textSize="60sp" />
         </LinearLayout>

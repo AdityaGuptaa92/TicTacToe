@@ -1,4 +1,4 @@
-package com.aditya.tictactoe
+package com.aditya.tictactoe.homepage
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.aditya.tictactoe.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
 
-        var imageView: ImageView = findViewById(R.id.imageView)
-        var textView: TextView = findViewById(R.id.textView)
+        val imageView: ImageView = findViewById(R.id.imageView)
+        val textView: TextView = findViewById(R.id.textView)
         // implementing animation to both ImageView and TextView
-        var topAnim = AnimationUtils.loadAnimation(this, R.anim.top_anim)
-        var bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim)
+        val topAnim = AnimationUtils.loadAnimation(this, R.anim.top_anim)
+        val bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim)
         imageView.startAnimation(topAnim)
         textView.startAnimation(bottomAnim)
 

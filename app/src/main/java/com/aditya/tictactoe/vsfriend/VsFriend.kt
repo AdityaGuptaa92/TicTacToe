@@ -10,9 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.aditya.tictactoe.Dashboard
+import com.aditya.tictactoe.homepage.Dashboard
 import com.aditya.tictactoe.R
 import kotlinx.android.synthetic.main.activity_vs_friend.*
 
