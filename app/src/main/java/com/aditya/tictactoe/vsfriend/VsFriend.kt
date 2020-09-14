@@ -24,9 +24,9 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     private var player2Points = 0
     private var textViewPlayer1: TextView? = null
     private var textViewPlayer2: TextView? = null
-    private var p1=""
-    private var p2=""
-    private lateinit var vsFriendHistory: VsFriendHistory
+    private var p1 = ""
+    private var p2 = ""
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,21 +39,37 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
         //DialogBox starts
         val dialog = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.vsfriend_dialog,null)
+        val dialogView = layoutInflater.inflate(R.layout.vsfriend_dialog, null)
         //EditText from dialog box
         val player1 = dialogView.findViewById<EditText>(R.id.player1_name)
         val player2 = dialogView.findViewById<EditText>(R.id.player2_name)
         dialog.setView(dialogView)
-        dialog.setPositiveButton("Let's Play!!") { Dialog: DialogInterface, i: Int ->}
-        dialog.setNegativeButton("Cancel"){Dialog: DialogInterface, i: Int ->}
+        dialog.setPositiveButton("Let's Play!!") { Dialog: DialogInterface, i: Int -> }
+        dialog.setNegativeButton("Cancel") { Dialog: DialogInterface, i: Int -> }
         val customDialog = dialog.create()
         customDialog.show()
         customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             when {
-                player1.text.isBlank() -> Toast.makeText(baseContext, "Please enter player 1 name", Toast.LENGTH_LONG).show()
-                player1.length() > 8 -> Toast.makeText(baseContext, "Player 1 name too long!",Toast.LENGTH_LONG).show()
-                player2.text.isBlank() -> Toast.makeText(baseContext, "Please enter player 2 name", Toast.LENGTH_LONG).show()
-                player2.length() > 8 -> Toast.makeText(baseContext, "Player 2 name too long!",Toast.LENGTH_LONG).show()
+                player1.text.isBlank() -> Toast.makeText(
+                    baseContext,
+                    "Please enter player 1 name",
+                    Toast.LENGTH_LONG
+                ).show()
+                player1.length() > 8 -> Toast.makeText(
+                    baseContext,
+                    "Player 1 name too long!",
+                    Toast.LENGTH_LONG
+                ).show()
+                player2.text.isBlank() -> Toast.makeText(
+                    baseContext,
+                    "Please enter player 2 name",
+                    Toast.LENGTH_LONG
+                ).show()
+                player2.length() > 8 -> Toast.makeText(
+                    baseContext,
+                    "Player 2 name too long!",
+                    Toast.LENGTH_LONG
+                ).show()
                 else -> {
                     customDialog.dismiss()
                     p1 = player1.text.toString()
@@ -63,7 +79,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener{
+        customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
         }
@@ -83,14 +99,20 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
         val buttonSaveHistory = findViewById<Button>(R.id.button_save_history_friend)
         buttonSaveHistory.setOnClickListener {
-
+            sendData()
             val intent = Intent(this, VsFriendHistory::class.java)
-            intent.putExtra("PLAYER1_NAME",p1)
-            intent.putExtra("PLAYER2_NAME",p2)
-            intent.putExtra("PLAYER1_SCORE",player1Points)
-            intent.putExtra("PLAYER2_SCORE",player2Points)
             startActivity(intent)
         }
+    }
+
+    private fun sendData() {
+        val sharedPreferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("PLAYER1_NAME", p1)
+        editor.putString("PLAYER2_NAME", p2)
+        editor.putInt("PLAYER1_SCORE", player1Points)
+        editor.putInt("PLAYER2_SCORE", player2Points)
+        editor.apply()
     }
 
     override fun onClick(v: View) {
@@ -163,6 +185,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         textViewPlayer1!!.text = "$p1(X):$player1Points"
         textViewPlayer2!!.text = "$p2(O):$player2Points"
     }
+
     private fun resetBoard() {
         for (i in 0..2) {
             for (j in 0..2) {
@@ -172,6 +195,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         roundCount = 0
         player1Turn = true
     }
+
     @SuppressLint("SetTextI18n")
     private fun resetGame() {
         player1Points = 0
