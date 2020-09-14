@@ -66,14 +66,14 @@
         app:layout_constraintVertical_bias="0.213" />
 
     <Button
-        android:id="@+id/button_history"
+        android:id="@+id/button_player_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
-        android:text="Show History"
+        android:layout_marginBottom="92dp"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/friend_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/player_history_item">
+        tools:listitem="@layout/friend_history_item">
 
 
     </androidx.recyclerview.widget.RecyclerView>

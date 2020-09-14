@@ -1,5 +1,6 @@
 package com.aditya.tictactoe.vsfriend
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_vs_friend.*
 
 class VsFriend : AppCompatActivity(), View.OnClickListener {
 
-
     private val buttons = Array(3) { arrayOfNulls<Button>(3) }
     private var player1Turn = true
     private var roundCount = 0
@@ -26,7 +26,9 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     private var textViewPlayer2: TextView? = null
     private var p1=""
     private var p2=""
+    private lateinit var vsFriendHistory: VsFriendHistory
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
@@ -78,6 +80,17 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         }
         val buttonReset = findViewById<Button>(R.id.button_reset_friend)
         buttonReset.setOnClickListener { resetGame() }
+
+        val buttonSaveHistory = findViewById<Button>(R.id.button_save_history_friend)
+        buttonSaveHistory.setOnClickListener {
+
+            val intent = Intent(this, VsFriendHistory::class.java)
+            intent.putExtra("PLAYER1_NAME",p1)
+            intent.putExtra("PLAYER2_NAME",p2)
+            intent.putExtra("PLAYER1_SCORE",player1Points)
+            intent.putExtra("PLAYER2_SCORE",player2Points)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(v: View) {
@@ -145,6 +158,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         resetBoard()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updatePointsText() {
         textViewPlayer1!!.text = "$p1(X):$player1Points"
         textViewPlayer2!!.text = "$p2(O):$player2Points"
@@ -158,6 +172,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         roundCount = 0
         player1Turn = true
     }
+    @SuppressLint("SetTextI18n")
     private fun resetGame() {
         player1Points = 0
         player2Points = 0
