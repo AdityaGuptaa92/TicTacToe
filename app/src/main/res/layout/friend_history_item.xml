@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
@@ -11,52 +10,63 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="5dp">
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-        <TextView
-            android:id="@+id/text_view_player_one_name"
-            android:layout_width="107dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
-            android:fontFamily="@font/roboto_mono"
-            android:text="AAAAAAAA"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintStart_toStartOf="parent" />
-        <TextView
-            android:id="@+id/text_view_vs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vs."
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:fontFamily="@font/roboto_mono"
-            android:textStyle="italic"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/text_view_player_one_name"/>
+            <TextView
+                android:id="@+id/text_view_player_one_name"
+                android:layout_width="126dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_weight="45"
+                android:fontFamily="@font/roboto_mono"
+                android:text="AAAAAAAA"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
+            <TextView
+                android:id="@+id/text_view_vs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/roboto_mono"
+                android:text="Vs"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="10"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="italic" />
+
+            <TextView
             android:id="@+id/text_view_player_second_name"
-            android:layout_width="107dp"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/text_view_vs"
-            android:textAlignment="center"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/roboto_mono"
-            android:textStyle="bold"
             android:text="AAAAAAAA"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:layout_weight="45"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/text_view_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_player_one_name"
+            android:layout_below="@id/linear_layout"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
@@ -75,9 +85,9 @@
             android:layout_below="@id/text_view_score"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="100dp"
             android:layout_marginTop="6dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
             android:fontFamily="@font/roboto_mono"
             android:text="AAAAAAAA won!"
             android:textAlignment="center"

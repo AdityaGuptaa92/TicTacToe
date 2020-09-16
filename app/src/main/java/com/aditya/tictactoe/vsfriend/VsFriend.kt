@@ -3,7 +3,9 @@ package com.aditya.tictactoe.vsfriend
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.aditya.tictactoe.homepage.Dashboard
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 import kotlinx.android.synthetic.main.activity_vs_friend.*
 
 class VsFriend : AppCompatActivity(), View.OnClickListener {
@@ -99,20 +104,32 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
         val buttonSaveHistory = findViewById<Button>(R.id.button_save_history_friend)
         buttonSaveHistory.setOnClickListener {
-            sendData()
-            val intent = Intent(this, VsFriendHistory::class.java)
-            startActivity(intent)
+
+            val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
+            sendData(friendHistoryData)
         }
     }
 
-    private fun sendData() {
-        val sharedPreferences = getSharedPreferences("SHARED_PREF", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("PLAYER1_NAME", p1)
-        editor.putString("PLAYER2_NAME", p2)
-        editor.putInt("PLAYER1_SCORE", player1Points)
-        editor.putInt("PLAYER2_SCORE", player2Points)
-        editor.apply()
+    private fun sendData(friendHistoryData: FriendHistoryData) {
+
+        class SaveDataAsync : AsyncTask<Void, Void, Void>() {
+            private lateinit var friendHistoryDao: FriendHistoryDao
+            override fun doInBackground(vararg params: Void?): Void? {
+                val database: FriendHistoryDatabase? = application?.let {
+                    FriendHistoryDatabase.getInstance(it)
+                }
+                if (database != null) {
+                    friendHistoryDao = database.friendHistoryDao()
+                }
+                friendHistoryDao.addHistory(friendHistoryData)
+                return null
+            }
+            override fun onPostExecute(result: Void?) {
+                super.onPostExecute(result)
+                Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()
+            }
+        }
+        SaveDataAsync().execute()
     }
 
     override fun onClick(v: View) {

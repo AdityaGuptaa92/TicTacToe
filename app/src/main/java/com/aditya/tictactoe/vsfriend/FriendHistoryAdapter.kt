@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
 
-class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData>) : RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>() {
+class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData>) :
+    RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>() {
 
     class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewPlayer1 = itemView.findViewById<TextView>(R.id.text_view_player_one_name)
@@ -19,23 +21,26 @@ class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendHistoryHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.friend_history_item,
-                parent,false)
+            .inflate(
+                R.layout.friend_history_item,
+                parent, false
+            )
         return FriendHistoryHolder(itemView)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FriendHistoryHolder, position: Int) {
 
-        val currentFriendHistoryData = friendHistoryData[position]
-        holder.textViewPlayer1.text = currentFriendHistoryData.getPlayerOneName()
-        holder.textViewPlayer2.text = currentFriendHistoryData.getPlayerSecondName()
-        holder.textViewScore.text = "Score: ${currentFriendHistoryData.getPlayerOneScore()}-${currentFriendHistoryData.getPlayerSecondScore()}"
+        holder.textViewPlayer1.text = friendHistoryData[position].playerOneName
+        holder.textViewPlayer2.text = friendHistoryData[position].playerSecondName
+        holder.textViewScore.text =
+            "Score: ${friendHistoryData[position].playerOneScore}-${friendHistoryData[position].playerSecondScore}"
         when {
-            currentFriendHistoryData.getPlayerOneScore()>currentFriendHistoryData.getPlayerSecondScore() ->
-                holder.textViewWhoWon.text = "${currentFriendHistoryData.getPlayerOneName()} won!"
-            currentFriendHistoryData.getPlayerOneScore()<currentFriendHistoryData.getPlayerSecondScore() ->
-                holder.textViewWhoWon.text = "${currentFriendHistoryData.getPlayerSecondName()} won!"
+            friendHistoryData[position].playerOneScore > friendHistoryData[position].playerSecondScore ->
+                holder.textViewWhoWon.text = "${friendHistoryData[position].playerOneName} won!"
+            friendHistoryData[position].playerOneScore < friendHistoryData[position].playerSecondScore ->
+                holder.textViewWhoWon.text =
+                    "${friendHistoryData[position].playerSecondName} won!"
             else -> holder.textViewWhoWon.text = "Draw!"
         }
 
@@ -43,6 +48,5 @@ class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData
 
     override fun getItemCount(): Int {
         return friendHistoryData.size
-
     }
 }
