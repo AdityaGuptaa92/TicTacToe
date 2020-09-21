@@ -5,6 +5,7 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
@@ -23,14 +24,15 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val buttonVsComputer = findViewById<Button>(R.id.button_vs_computer)
+        //val buttonVsComputer = findViewById<Button>(R.id.button_vs_computer)
         val buttonVsFriend = findViewById<Button>(R.id.button_vs_friend)
         val buttonPlayerHistory = findViewById<Button>(R.id.button_player_history)
 
-        buttonVsComputer.setOnClickListener {
-            val intent = Intent(this, VsComputer::class.java)
-            startActivity(intent)
-        }
+
+//        buttonVsComputer.setOnClickListener {
+//            val intent = Intent(this, VsComputer::class.java)
+//            startActivity(intent)
+//        }
 
         buttonVsFriend.setOnClickListener {
             val intent = Intent(this, VsFriend::class.java)
@@ -38,8 +40,8 @@ class Dashboard : AppCompatActivity() {
         }
 
         buttonPlayerHistory.setOnClickListener {
-            val intent = Intent(this, VsFriendHistory::class.java)
-            startActivity(intent)
+                val intent = Intent(this, VsFriendHistory::class.java)
+                startActivity(intent)
         }
     }
 }

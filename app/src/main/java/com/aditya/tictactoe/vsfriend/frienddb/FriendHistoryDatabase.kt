@@ -10,8 +10,6 @@ abstract class FriendHistoryDatabase : RoomDatabase() {
 
     abstract fun friendHistoryDao(): FriendHistoryDao
 
-
-
     companion object {
         @Volatile
         private var instance: FriendHistoryDatabase? = null

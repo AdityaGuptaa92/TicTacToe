@@ -2,6 +2,7 @@ package com.aditya.tictactoe.vsfriend
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,7 @@ import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 
 
-class VsFriendHistory: AppCompatActivity() {
+class VsFriendHistory : AppCompatActivity() {
 
     private lateinit var friendHistoryWholeData: List<FriendHistoryData>
     private lateinit var friendRecyclerView: RecyclerView
@@ -39,6 +40,12 @@ class VsFriendHistory: AppCompatActivity() {
                 friendHistoryWholeData = friendHistoryDao.getWholeHistory()
                 friendRecyclerView.adapter = FriendHistoryAdapter(friendHistoryWholeData)
                 return null
+            }
+            override fun onPostExecute(result: Void?) {
+                super.onPostExecute(result)
+                if (friendHistoryWholeData.isEmpty()) {
+                    Toast.makeText(baseContext, "No history to show", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         ShowWholeHistory().execute()

@@ -21,10 +21,7 @@ class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendHistoryHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(
-                R.layout.friend_history_item,
-                parent, false
-            )
+            .inflate(R.layout.friend_history_item, parent, false)
         return FriendHistoryHolder(itemView)
     }
 
