@@ -124,6 +124,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                 friendHistoryDao.addHistory(friendHistoryData)
                 return null
             }
+
             override fun onPostExecute(result: Void?) {
                 super.onPostExecute(result)
                 Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()

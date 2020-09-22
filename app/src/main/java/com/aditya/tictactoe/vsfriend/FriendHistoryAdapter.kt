@@ -1,22 +1,30 @@
 package com.aditya.tictactoe.vsfriend
 
 import android.annotation.SuppressLint
+import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
+import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 
 class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData>) :
     RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>() {
 
-    class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textViewPlayer1 = itemView.findViewById<TextView>(R.id.text_view_player_one_name)
-        var textViewPlayer2 = itemView.findViewById<TextView>(R.id.text_view_player_second_name)
-        var textViewScore = itemView.findViewById<TextView>(R.id.text_view_score)
-        var textViewWhoWon = itemView.findViewById<TextView>(R.id.text_view_player_won)
+    class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+        val textViewPlayer1: TextView = itemView.findViewById(R.id.text_view_player_one_name)
+        val textViewPlayer2: TextView = itemView.findViewById(R.id.text_view_player_second_name)
+        val textViewScore: TextView = itemView.findViewById(R.id.text_view_score)
+        val textViewWhoWon: TextView = itemView.findViewById(R.id.text_view_player_won)
+        val deleteButton: Button = itemView.findViewById(R.id.button_delete)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendHistoryHolder {
@@ -41,9 +49,17 @@ class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData
             else -> holder.textViewWhoWon.text = "Draw!"
         }
 
+        holder.deleteButton.setOnClickListener {
+            deletePlayerHistory()
+        }
+
     }
 
     override fun getItemCount(): Int {
         return friendHistoryData.size
+    }
+
+    private fun deletePlayerHistory() {
+
     }
 }

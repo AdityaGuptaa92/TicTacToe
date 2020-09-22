@@ -2,6 +2,7 @@ package com.aditya.tictactoe.vsfriend
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,6 +42,7 @@ class VsFriendHistory : AppCompatActivity() {
                 friendRecyclerView.adapter = FriendHistoryAdapter(friendHistoryWholeData)
                 return null
             }
+
             override fun onPostExecute(result: Void?) {
                 super.onPostExecute(result)
                 if (friendHistoryWholeData.isEmpty()) {
