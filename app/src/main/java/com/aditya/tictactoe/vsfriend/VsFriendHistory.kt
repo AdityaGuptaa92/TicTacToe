@@ -14,7 +14,6 @@ import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 
 
 class VsFriendHistory : AppCompatActivity() {
-
     private lateinit var friendHistoryWholeData: List<FriendHistoryData>
     private lateinit var friendRecyclerView: RecyclerView
 
@@ -39,7 +38,7 @@ class VsFriendHistory : AppCompatActivity() {
                     friendHistoryDao = database.friendHistoryDao()
                 }
                 friendHistoryWholeData = friendHistoryDao.getWholeHistory()
-                friendRecyclerView.adapter = FriendHistoryAdapter(friendHistoryWholeData)
+                friendRecyclerView.adapter = FriendHistoryAdapter(friendHistoryWholeData,friendHistoryDao,application)
                 return null
             }
 

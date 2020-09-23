@@ -1,29 +1,31 @@
 package com.aditya.tictactoe.vsfriend
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
-import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 
-class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData>) :
+class FriendHistoryAdapter(
+    private var friendHistoryData: List<FriendHistoryData>,
+    private val friendHistoryDao: FriendHistoryDao,
+    private val mContext: Context
+) :
     RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>() {
 
-    class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val textViewPlayer1: TextView = itemView.findViewById(R.id.text_view_player_one_name)
         val textViewPlayer2: TextView = itemView.findViewById(R.id.text_view_player_second_name)
         val textViewScore: TextView = itemView.findViewById(R.id.text_view_score)
         val textViewWhoWon: TextView = itemView.findViewById(R.id.text_view_player_won)
-        val deleteButton: Button = itemView.findViewById(R.id.button_delete)
+        val deleteImageButton: ImageView = itemView.findViewById(R.id.image_delete)
 
     }
 
@@ -48,18 +50,33 @@ class FriendHistoryAdapter(private var friendHistoryData: List<FriendHistoryData
                     "${friendHistoryData[position].playerSecondName} won!"
             else -> holder.textViewWhoWon.text = "Draw!"
         }
-
-        holder.deleteButton.setOnClickListener {
-            deletePlayerHistory()
+        holder.deleteImageButton.setOnClickListener {
+            deletePlayerHistory(position)
         }
-
     }
 
     override fun getItemCount(): Int {
         return friendHistoryData.size
     }
 
-    private fun deletePlayerHistory() {
+    private fun deletePlayerHistory(position: Int) {
+        val item = friendHistoryData[position]
+        (friendHistoryData as MutableList).remove(item)
+        notifyItemChanged(position)
+        updateDatabase(item, friendHistoryDao,mContext)
+    }
 
+    private fun updateDatabase(item: FriendHistoryData, friendHistoryDao: FriendHistoryDao,mContext: Context) {
+        class UpdateDatabase : AsyncTask<Void, Void, Void>() {
+            override fun doInBackground(vararg params: Void?): Void? {
+                friendHistoryDao.deleteHistory(item)
+                return null
+            }
+            override fun onPostExecute(result: Void?) {
+                super.onPostExecute(result)
+                Toast.makeText(mContext, "Item deleted", Toast.LENGTH_SHORT).show()
+            }
+        }
+        UpdateDatabase().execute()
     }
 }

@@ -4,78 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="2dp"
     tools:context=".homepage.Dashboard">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="304dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/bangers"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Tic Tac Toe"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="70sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_vs_friend"
-        android:layout_width="118dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="64dp"
-        android:background="@drawable/custom_button_blue"
-        android:text="vs Friend"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_vs_computer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_vs_computer" />
-
-    <Button
-        android:id="@+id/button_vs_computer"
-        android:layout_width="118dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="64dp"
-        android:background="@drawable/custom_button_blue"
-        android:text="vs Computer"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="290dp"
-        android:layout_height="84dp"
-        android:fontFamily="@font/poppins_regular"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Whom you wanna play with ??"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.213" />
-
-    <Button
-        android:id="@+id/button_player_history"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
-        android:text="Show History"
-        android:background="@drawable/custom_button_blue"
-        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="304dp"
+            android:layout_height="133dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/bangers"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Tic Tac Toe"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="70sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_vs_friend"
+            android:layout_width="150dp"
+            android:layout_height="43dp"
+            android:layout_below="@id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Let's Play!"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_player_history"
+            android:layout_width="150dp"
+            android:layout_height="43dp"
+            android:layout_below="@id/button_vs_friend"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Show History"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/button_vs_friend" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

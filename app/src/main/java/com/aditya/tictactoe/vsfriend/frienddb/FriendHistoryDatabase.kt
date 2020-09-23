@@ -13,6 +13,7 @@ abstract class FriendHistoryDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var instance: FriendHistoryDatabase? = null
+
         @Synchronized
         fun getInstance(context: Context): FriendHistoryDatabase? {
             if (instance == null) {
@@ -24,6 +25,4 @@ abstract class FriendHistoryDatabase : RoomDatabase() {
             return instance
         }
     }
-
-
 }

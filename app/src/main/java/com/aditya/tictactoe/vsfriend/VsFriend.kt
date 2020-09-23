@@ -1,11 +1,9 @@
 package com.aditya.tictactoe.vsfriend
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -49,8 +47,8 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         val player1 = dialogView.findViewById<EditText>(R.id.player1_name)
         val player2 = dialogView.findViewById<EditText>(R.id.player2_name)
         dialog.setView(dialogView)
-        dialog.setPositiveButton("Let's Play!!") { Dialog: DialogInterface, i: Int -> }
-        dialog.setNegativeButton("Cancel") { Dialog: DialogInterface, i: Int -> }
+        dialog.setPositiveButton("Let's Play!!") { _, _ -> }
+        dialog.setNegativeButton("Cancel") { _, _ -> }
         val customDialog = dialog.create()
         customDialog.show()
         customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
@@ -107,6 +105,7 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
             val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
             sendData(friendHistoryData)
+            resetGame()
         }
     }
 

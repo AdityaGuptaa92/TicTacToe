@@ -17,6 +17,4 @@ interface FriendHistoryDao {
 
     @Delete
     fun deleteHistory(friendHistoryData: FriendHistoryData)
-
-
 }
