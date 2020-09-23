@@ -14,15 +14,15 @@
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintVertical_bias="0.299">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="304dp"
             android:layout_height="133dp"
-            android:layout_centerHorizontal="true"
             android:fontFamily="@font/bangers"
             android:gravity="center_horizontal|center_vertical"
             android:text="Tic Tac Toe"
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button_vs_friend"
+            android:id="@+id/dashboard_vs_friend"
             android:layout_width="150dp"
             android:layout_height="43dp"
             android:layout_below="@id/textView2"
@@ -50,18 +50,31 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button_player_history"
+            android:id="@+id/dashboard_player_history"
             android:layout_width="150dp"
             android:layout_height="43dp"
-            android:layout_below="@id/button_vs_friend"
+            android:layout_below="@id/dashboard_vs_friend"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_mono"
             android:text="Show History"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
-            app:layout_constraintTop_toBottomOf="@+id/button_vs_friend" />
+            app:layout_constraintTop_toBottomOf="@+id/dashboard_vs_friend" />
+
+        <Button
+            android:id="@+id/dashboard_settings"
+            android:layout_width="150dp"
+            android:layout_height="43dp"
+            android:layout_below="@id/dashboard_player_history"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Settings"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black" />
 
     </RelativeLayout>
 

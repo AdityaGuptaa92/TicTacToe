@@ -100,17 +100,22 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         val buttonReset = findViewById<Button>(R.id.button_reset_friend)
         buttonReset.setOnClickListener { resetGame() }
 
-        val buttonSaveHistory = findViewById<Button>(R.id.button_save_history_friend)
+        val buttonSaveHistory = findViewById<Button>(R.id.button_save_reset_friend)
         buttonSaveHistory.setOnClickListener {
-
             val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
             sendData(friendHistoryData)
             resetGame()
         }
+        val buttonSaveAndExit = findViewById<Button>(R.id.button_save_exit_friend)
+        buttonSaveAndExit.setOnClickListener {
+            val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
+            sendData(friendHistoryData)
+            val intent = Intent(this,Dashboard::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun sendData(friendHistoryData: FriendHistoryData) {
-
         class SaveDataAsync : AsyncTask<Void, Void, Void>() {
             private lateinit var friendHistoryDao: FriendHistoryDao
             override fun doInBackground(vararg params: Void?): Void? {
@@ -123,7 +128,6 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
                 friendHistoryDao.addHistory(friendHistoryData)
                 return null
             }
-
             override fun onPostExecute(result: Void?) {
                 super.onPostExecute(result)
                 Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()

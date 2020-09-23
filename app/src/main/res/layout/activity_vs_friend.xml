@@ -43,7 +43,6 @@
             android:layout_marginEnd="200dp"
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -65,38 +64,35 @@
 
         <Button
             android:id="@+id/button_reset_friend"
-            android:layout_width="128dp"
+            android:layout_width="115dp"
             android:layout_height="43dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="75dp"
+            android:layout_marginEnd="25dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_mono"
             android:text="Reset"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_save_history_friend"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.296"
-            app:layout_constraintStart_toEndOf="@+id/button_save_history_friend" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_save_exit_friend"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button_save_history_friend"
-            android:layout_width="128dp"
+            android:id="@+id/button_save_reset_friend"
+            android:layout_width="115dp"
             android:layout_height="43dp"
-            android:layout_marginStart="64dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="80dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/roboto_mono"
             android:padding="3dp"
-            android:text="Save and Reset"
+            android:text="Save &amp; Reset"
             android:textAllCaps="false"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/field_player1"
-            app:layout_constraintVertical_bias="0.224" />
+            app:layout_constraintVertical_bias="0.142" />
 
         <TextView
             android:id="@+id/textView4"
@@ -113,6 +109,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.101" />
+
+        <Button
+            android:id="@+id/button_save_exit_friend"
+            android:layout_width="115dp"
+            android:layout_height="43dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Save &amp; Exit"
+            android:textAllCaps="false"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_save_reset_friend"
+            app:layout_constraintEnd_toStartOf="@+id/button_reset_friend"
+            app:layout_constraintStart_toEndOf="@+id/button_save_reset_friend" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

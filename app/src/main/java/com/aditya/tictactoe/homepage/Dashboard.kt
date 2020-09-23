@@ -14,8 +14,8 @@ class Dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val buttonVsFriend = findViewById<Button>(R.id.button_vs_friend)
-        val buttonPlayerHistory = findViewById<Button>(R.id.button_player_history)
+        val buttonVsFriend = findViewById<Button>(R.id.dashboard_vs_friend)
+        val buttonPlayerHistory = findViewById<Button>(R.id.dashboard_player_history)
 
 
         buttonVsFriend.setOnClickListener {
