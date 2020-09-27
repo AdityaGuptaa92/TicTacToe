@@ -2,7 +2,6 @@ package com.aditya.tictactoe.vsfriend
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,15 +9,17 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import com.aditya.tictactoe.homepage.Dashboard
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.vsfriend.frienddb.BaseActivity
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDatabase
 import kotlinx.android.synthetic.main.activity_vs_friend.*
+import kotlinx.coroutines.launch
 
-class VsFriend : AppCompatActivity(), View.OnClickListener {
+class VsFriend : BaseActivity(), View.OnClickListener {
+
 
     private val buttons = Array(3) { arrayOfNulls<Button>(3) }
     private var player1Turn = true
@@ -35,7 +36,6 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
-
 
         textViewPlayer1 = findViewById(R.id.field_player1)
         textViewPlayer2 = findViewById(R.id.field_player2)
@@ -88,7 +88,6 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
         }
         //DialogBox Ends
 
-
         for (i in 0..2) {
             for (j in 0..2) {
                 val buttonID = "button_$i$j"
@@ -102,38 +101,41 @@ class VsFriend : AppCompatActivity(), View.OnClickListener {
 
         val buttonSaveHistory = findViewById<Button>(R.id.button_save_reset_friend)
         buttonSaveHistory.setOnClickListener {
-            val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
-            sendData(friendHistoryData)
-            resetGame()
-        }
-        val buttonSaveAndExit = findViewById<Button>(R.id.button_save_exit_friend)
-        buttonSaveAndExit.setOnClickListener {
-            val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
-            sendData(friendHistoryData)
-            val intent = Intent(this,Dashboard::class.java)
-            startActivity(intent)
-        }
-    }
 
-    private fun sendData(friendHistoryData: FriendHistoryData) {
-        class SaveDataAsync : AsyncTask<Void, Void, Void>() {
-            private lateinit var friendHistoryDao: FriendHistoryDao
-            override fun doInBackground(vararg params: Void?): Void? {
-                val database: FriendHistoryDatabase? = application?.let {
+            launch {
+                val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
+
+                lateinit var friendHistoryDao: FriendHistoryDao
+                val database = applicationContext?.let {
                     FriendHistoryDatabase.getInstance(it)
                 }
                 if (database != null) {
                     friendHistoryDao = database.friendHistoryDao()
                 }
                 friendHistoryDao.addHistory(friendHistoryData)
-                return null
-            }
-            override fun onPostExecute(result: Void?) {
-                super.onPostExecute(result)
                 Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()
             }
+            resetGame()
         }
-        SaveDataAsync().execute()
+
+        val buttonSaveAndExit = findViewById<Button>(R.id.button_save_exit_friend)
+        buttonSaveAndExit.setOnClickListener {
+            launch {
+                val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
+
+                lateinit var friendHistoryDao: FriendHistoryDao
+                val database = applicationContext?.let {
+                    FriendHistoryDatabase.getInstance(it)
+                }
+                if (database != null) {
+                    friendHistoryDao = database.friendHistoryDao()
+                }
+                friendHistoryDao.addHistory(friendHistoryData)
+                Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()
+            }
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(v: View) {

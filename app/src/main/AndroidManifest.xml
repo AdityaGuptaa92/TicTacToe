@@ -10,11 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".vsfriend.VsFriendHistory"/>
-
+        <activity android:name=".homepage.Settings"></activity>
+        <activity android:name=".vsfriend.VsFriendHistory" />
         <activity android:name=".vsfriend.VsFriend" />
-        <activity android:name=".vscomputer.VsComputer" />
         <activity android:name=".homepage.Dashboard" />
         <activity android:name=".homepage.MainActivity">
             <intent-filter>

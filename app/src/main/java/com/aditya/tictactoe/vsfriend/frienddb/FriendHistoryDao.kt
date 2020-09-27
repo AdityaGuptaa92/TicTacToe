@@ -10,11 +10,11 @@ import androidx.room.Query
 interface FriendHistoryDao {
 
     @Insert
-    fun addHistory(friendHistoryData: FriendHistoryData)
+    suspend fun addHistory(friendHistoryData: FriendHistoryData)
 
     @Query("SELECT * FROM friend_history ORDER BY id DESC")
-    fun getWholeHistory() : List<FriendHistoryData>
+    suspend fun getWholeHistory() : List<FriendHistoryData>
 
     @Delete
-    fun deleteHistory(friendHistoryData: FriendHistoryData)
+    suspend fun deleteHistory(friendHistoryData: FriendHistoryData)
 }

@@ -2,7 +2,6 @@ package com.aditya.tictactoe.vsfriend
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 class FriendHistoryAdapter(
     private var friendHistoryData: List<FriendHistoryData>,
     private val friendHistoryDao: FriendHistoryDao,
     private val mContext: Context
 ) :
-    RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>() {
+    RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>(), CoroutineScope {
+
+    private val job = Job()
+    override val coroutineContext: CoroutineContext
+        get() =job + Dispatchers.Main
 
     class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -62,21 +70,10 @@ class FriendHistoryAdapter(
     private fun deletePlayerHistory(position: Int) {
         val item = friendHistoryData[position]
         (friendHistoryData as MutableList).remove(item)
-        notifyItemChanged(position)
-        updateDatabase(item, friendHistoryDao,mContext)
-    }
-
-    private fun updateDatabase(item: FriendHistoryData, friendHistoryDao: FriendHistoryDao,mContext: Context) {
-        class UpdateDatabase : AsyncTask<Void, Void, Void>() {
-            override fun doInBackground(vararg params: Void?): Void? {
-                friendHistoryDao.deleteHistory(item)
-                return null
-            }
-            override fun onPostExecute(result: Void?) {
-                super.onPostExecute(result)
-                Toast.makeText(mContext, "Item deleted", Toast.LENGTH_SHORT).show()
-            }
+        launch {
+            friendHistoryDao.deleteHistory(item)
+            Toast.makeText(mContext, "Item removed", Toast.LENGTH_SHORT).show()
         }
-        UpdateDatabase().execute()
+        notifyItemChanged(position)
     }
 }
