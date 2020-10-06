@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
             finish()
-        }, 2400)
+        }, 2500)
 
     }
 
