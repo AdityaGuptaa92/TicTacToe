@@ -20,5 +20,21 @@ This is the app's main dashboard to navigate to different activities within the 
 settings of this app.<br>
 
 ## TicTacToe Board
+<img src="Images/custom_player_name.png" width = "250" height = "515"> <img src="Images/playing_board.png" width = "250" height = "515"> 
+<img src="Images/player_won.png" width = "250" height = "515">
 
-<img src="Images/custom_player_name.png" width = "250" height = "515"> <img src="Images/playing_board.png" width = "250" height = "515"> <img src="Images/player_won.png" width = "250" height = "515">
+This is the playing board for the app. A button array consitutes the major part of this board, on which players can press to place their move and the scores are updated and
+displayed at the end of every game and board automatically resets. Also, user can reset manually or save the game score by pressing the respective buttons provided. Reset and 
+Save & Reset button resets the board as well as the score board. Players can enter their desired names with help of AlertDialog box which is displayed everytime when the board
+activity is created. 
+
+## Game History 
+<img src="Images/game_history.png" width = "250" height = "515"> <br>
+The scores of the games played are stored with the help of Room Database and the stored data is displayed in the RecylerView and the CardView. Along with scores, name of player
+won or draw declaration is also displayed. A particular game history can be deleted from the database by clicking the delete icon.<br>
+
+## Future development aspects
+Two major future developments for this application would be, implementation of the Computer vs Player, 2D tic tac toe with Minimax algo and migration of the app to MVVM 
+architecture. These two are the current development aspects I am looking forward to implement. Furthermore, for the optimization of the app's performance new code architecture
+and features would be implemented time to time for better user experience. 
+
