@@ -3,6 +3,7 @@ package com.aditya.tictactoe.homepage
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -27,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         textView.startAnimation(bottomAnim)
 
         /*Here we are implementing the splash screen with the help of Handler() and then after the
-        splash screen is gone i.e. after 2.4 secs the next activity called is VsFriend.kt*/
-        Handler().postDelayed({
+        splash screen is gone i.e. after 2.5 secs the next activity called is VsFriend.kt*/
+        Handler(Looper.myLooper()!!).postDelayed({
             val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
             finish()

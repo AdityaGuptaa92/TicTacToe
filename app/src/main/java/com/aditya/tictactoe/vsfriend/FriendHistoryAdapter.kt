@@ -23,6 +23,10 @@ class FriendHistoryAdapter(
 ) :
     RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>(), CoroutineScope {
 
+    init {
+        notifyDataSetChanged()
+    }
+
     private val job = Job()
     override val coroutineContext: CoroutineContext
         get() =job + Dispatchers.Main
@@ -74,6 +78,7 @@ class FriendHistoryAdapter(
             friendHistoryDao.deleteHistory(item)
             Toast.makeText(mContext, "Item removed", Toast.LENGTH_SHORT).show()
         }
-        notifyItemChanged(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position,friendHistoryData.size)
     }
 }
