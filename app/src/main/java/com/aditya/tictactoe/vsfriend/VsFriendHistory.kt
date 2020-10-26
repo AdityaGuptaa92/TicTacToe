@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.adapters.FriendHistoryAdapter
 import com.aditya.tictactoe.vsfriend.frienddb.BaseActivity
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
@@ -20,7 +21,7 @@ class VsFriendHistory : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend_history)
 
-        friendRecyclerView = findViewById(R.id.friend_recycler_view)
+        friendRecyclerView = findViewById(R.id.friend_history_recycler_view)
         friendRecyclerView.layoutManager = LinearLayoutManager(this)
         friendRecyclerView.setHasFixedSize(true)
         

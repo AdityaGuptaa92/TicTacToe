@@ -1,4 +1,4 @@
-package com.aditya.tictactoe.vsfriend
+package com.aditya.tictactoe.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -22,14 +22,13 @@ class FriendHistoryAdapter(
     private val mContext: Context
 ) :
     RecyclerView.Adapter<FriendHistoryAdapter.FriendHistoryHolder>(), CoroutineScope {
-
     init {
         notifyDataSetChanged()
     }
 
     private val job = Job()
     override val coroutineContext: CoroutineContext
-        get() =job + Dispatchers.Main
+        get() = job + Dispatchers.Main
 
     class FriendHistoryHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -79,6 +78,6 @@ class FriendHistoryAdapter(
             Toast.makeText(mContext, "Item removed", Toast.LENGTH_SHORT).show()
         }
         notifyItemRemoved(position)
-        notifyItemRangeChanged(position,friendHistoryData.size)
+        notifyItemRangeChanged(position, friendHistoryData.size)
     }
 }

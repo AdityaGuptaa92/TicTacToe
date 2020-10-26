@@ -16,16 +16,20 @@ class Dashboard : AppCompatActivity() {
 
         val buttonVsFriend = findViewById<Button>(R.id.dashboard_vs_friend)
         val buttonPlayerHistory = findViewById<Button>(R.id.dashboard_player_history)
+        val buttonSettings = findViewById<Button>(R.id.dashboard_settings)
 
 
         buttonVsFriend.setOnClickListener {
-            val intent = Intent(this, VsFriend::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, VsFriend::class.java))
         }
 
         buttonPlayerHistory.setOnClickListener {
-                val intent = Intent(this, VsFriendHistory::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, VsFriendHistory::class.java))
         }
+
+        buttonSettings.setOnClickListener {
+            startActivity(Intent(this,Settings::class.java))
+        }
+
     }
 }

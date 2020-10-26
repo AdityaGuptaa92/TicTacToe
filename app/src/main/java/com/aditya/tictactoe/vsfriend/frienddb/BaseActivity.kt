@@ -14,7 +14,6 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
-
     override fun onDestroy() {
         super.onDestroy()
         job.cancel()
