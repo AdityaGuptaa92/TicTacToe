@@ -16,8 +16,7 @@ In the splash screen bottom and top animation are used for the text(app title) a
 This is the app's main dashboard to navigate to different activities within the app.<br>
 1. Let's Play! - It navigates the user to the tic tac toe playing board.<br>
 2. Show History - It navigates to the Game History activity where saved scores are displayed.<br>
-3. Settings - Settings functionaility is yet to be implemented. App theme(dark or light), About App and Contact Us functionailities are supposed to be implemented under the 
-settings of this app.<br>
+3. Settings -  In Settings we have three functionaties - Theme, Contact Us and App Info. <br>
 
 ## TicTacToe Board
 <img src="Images/custom_player_name.png" width = "250" height = "515"> <img src="Images/playing_board.png" width = "250" height = "515"> 
@@ -32,6 +31,12 @@ activity is created.
 <img src="Images/game_history.png" width = "250" height = "515"> <br>
 The scores of the games played are stored with the help of Room Database and the stored data is displayed in the RecylerView and the CardView. Along with scores, name of player
 won or draw declaration is also displayed. A particular game history can be deleted from the database by clicking the delete icon.<br>
+
+## Settings
+<img src="Images/settings.png" width = "250" height = "515"> <br>
+<I>Theme</I> changes the app theme either light or dark as per user's wish.<br>
+<I>Contact Us</I> you can contact the developers and maintainers of this application for the feedback.<br>
+<I>App Info</I> provides the information of this app.<br>
 
 ## Future development aspects
 Two major future developments for this application would be, implementation of the Computer vs Player, 2D tic tac toe with Minimax algo and migration of the app to MVVM 
