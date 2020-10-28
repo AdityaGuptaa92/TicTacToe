@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
+    <string name="message_to_user">Your feedback is valuable to us♥</string>
+    <string name="app_info">This app is a one versus one 2D tic tac toe game. This app is my project for Summer In-house Training, June 2020 for Android App
+        Development with Kotlin conducted by Coding Ninjas. The main idea for developing this app is to learn and improve my Android app developing skills
+        and try to optimize the app\'s performance as much as possible.</string>
 </resources>

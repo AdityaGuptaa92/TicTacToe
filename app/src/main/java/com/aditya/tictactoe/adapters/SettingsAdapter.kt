@@ -11,10 +11,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.homepage.Settings
+
 
 class SettingsAdapter(private val mContext: Context) :
     RecyclerView.Adapter<SettingsAdapter.SettingsViewHolder>() {
 
+    private val settings = Settings()
     private val settingsTitles = arrayOf("Theme", "Contact Us", "App Info")
     private val settingsIcons =
         arrayOf(R.drawable.ic_brightness96, R.drawable.ic_contact96, R.drawable.ic_info96)
@@ -39,8 +42,7 @@ class SettingsAdapter(private val mContext: Context) :
             when (settingsIcons[position]) {
                 R.drawable.ic_brightness96 -> Toast.makeText(mContext, "Theme", Toast.LENGTH_SHORT)
                     .show()
-                R.drawable.ic_contact96 -> Toast.makeText(mContext, "Contact", Toast.LENGTH_SHORT)
-                    .show()
+                R.drawable.ic_contact96 -> contactUs(mContext)
                 R.drawable.ic_info96 -> appInfo(mContext)
             }
         }
@@ -48,7 +50,7 @@ class SettingsAdapter(private val mContext: Context) :
 
     override fun getItemCount() = settingsTitles.size
 
-    private fun appInfo(context : Context) {
+    private fun appInfo(context: Context) {
         val appInfoDialog = Dialog(context)
         appInfoDialog.setContentView(R.layout.app_info_popup)
         appInfoDialog.show()
@@ -56,6 +58,33 @@ class SettingsAdapter(private val mContext: Context) :
         closeAppInfo.setOnClickListener {
             appInfoDialog.dismiss()
         }
+    }
 
+    private fun contactUs(context: Context) {
+        val contactUsDialog = Dialog(context)
+        contactUsDialog.setContentView(R.layout.contactus_popup)
+        contactUsDialog.show()
+        val githubLink = contactUsDialog.findViewById<ImageView>(R.id.github_link)
+        val mailLink = contactUsDialog.findViewById<ImageView>(R.id.mail_link)
+        val linkedInLink = contactUsDialog.findViewById<ImageView>(R.id.linked_link)
+        val closeContactUs = contactUsDialog.findViewById<Button>(R.id.close_contactus)
+        closeContactUs.setOnClickListener {
+            contactUsDialog.dismiss()
+        }
+
+        githubLink.setOnClickListener {
+            val url = "https://github.com/AdityaGuptaa92/TicTacToe"
+            settings.openUrl(url)
+        }
+
+        mailLink.setOnClickListener {
+            val url = "adityagupta3214@gmail.com"
+            settings.openUrl(url)
+        }
+
+        linkedInLink.setOnClickListener {
+            val url = "https://www.linkedin.com/in/aditya-gupta-646220191"
+            settings.openUrl(url)
+        }
     }
 }

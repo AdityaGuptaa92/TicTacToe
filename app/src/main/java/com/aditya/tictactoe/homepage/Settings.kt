@@ -1,5 +1,7 @@
 package com.aditya.tictactoe.homepage
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -10,7 +12,7 @@ import com.aditya.tictactoe.adapters.SettingsAdapter
 
 class Settings : AppCompatActivity() {
 
-    private lateinit var settingsRecyclerView : RecyclerView
+    private lateinit var settingsRecyclerView: RecyclerView
     private lateinit var settingsAdapter: SettingsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,10 @@ class Settings : AppCompatActivity() {
         settingsRecyclerView.layoutManager = LinearLayoutManager(this)
         settingsRecyclerView.setHasFixedSize(true)
         settingsRecyclerView.adapter = settingsAdapter
+    }
 
+    fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW,Uri.parse(url))
+        startActivity(intent)
     }
 }
