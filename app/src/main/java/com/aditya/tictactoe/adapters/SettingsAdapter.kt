@@ -7,10 +7,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
 import com.aditya.tictactoe.homepage.Settings
@@ -19,7 +16,7 @@ import com.aditya.tictactoe.homepage.Settings
 class SettingsAdapter(private val mContext: Context) :
     RecyclerView.Adapter<SettingsAdapter.SettingsViewHolder>() {
 
-    private val settings = Settings()
+    private lateinit var radioButton: RadioButton
     private val settingsTitles = arrayOf("Theme", "Contact Us", "App Info")
     private val settingsIcons =
         arrayOf(R.drawable.ic_brightness96, R.drawable.ic_contact96, R.drawable.ic_info96)
@@ -42,8 +39,7 @@ class SettingsAdapter(private val mContext: Context) :
 
         holder.settingsIcon.setOnClickListener {
             when (settingsIcons[position]) {
-                R.drawable.ic_brightness96 -> Toast.makeText(mContext, "Theme", Toast.LENGTH_SHORT)
-                    .show()
+                R.drawable.ic_brightness96 -> theme(mContext)
                 R.drawable.ic_contact96 -> contactUs(mContext)
                 R.drawable.ic_info96 -> appInfo(mContext)
             }
@@ -90,6 +86,17 @@ class SettingsAdapter(private val mContext: Context) :
             val urlLinkedIn = "https://www.linkedin.com/in/aditya-gupta-646220191"
             val intent = Intent(Intent.ACTION_VIEW,Uri.parse(urlLinkedIn))
             context.startActivity(intent)
+        }
+    }
+
+    private fun theme(context: Context) {
+        val themeDialog = Dialog(context)
+        themeDialog.setContentView(R.layout.theme)
+        themeDialog.show()
+        val themeRadioGroup = themeDialog.findViewById<RadioGroup>(R.id.theme_radio_group)
+        val closeTheme = themeDialog.findViewById<Button>(R.id.close_theme)
+        closeTheme.setOnClickListener {
+            themeDialog.dismiss()
         }
     }
 }
