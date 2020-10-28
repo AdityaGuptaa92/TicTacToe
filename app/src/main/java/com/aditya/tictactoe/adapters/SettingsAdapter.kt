@@ -2,6 +2,8 @@ package com.aditya.tictactoe.adapters
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,18 +75,21 @@ class SettingsAdapter(private val mContext: Context) :
         }
 
         githubLink.setOnClickListener {
-            val url = "https://github.com/AdityaGuptaa92/TicTacToe"
-            settings.openUrl(url)
+            val urlGithub = "https://github.com/AdityaGuptaa92/TicTacToe"
+            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(urlGithub))
+            context.startActivity(intent)
         }
 
         mailLink.setOnClickListener {
-            val url = "adityagupta3214@gmail.com"
-            settings.openUrl(url)
+            val urlMail = "adityagupta3214@gmail.com"
+            val intent = Intent(Intent.ACTION_VIEW,Uri.parse("mailto:$urlMail"))
+            context.startActivity(intent)
         }
 
         linkedInLink.setOnClickListener {
-            val url = "https://www.linkedin.com/in/aditya-gupta-646220191"
-            settings.openUrl(url)
+            val urlLinkedIn = "https://www.linkedin.com/in/aditya-gupta-646220191"
+            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(urlLinkedIn))
+            context.startActivity(intent)
         }
     }
 }
