@@ -11,7 +11,7 @@ In the splash screen bottom and top animation are used for the text(app title) a
 
 ## Dashboard 
 
-<img src="Images/dashboard.png" width = "250" height = "515">
+<img src="Images/dashboard.png" width = "250" height = "515"> <img src="Images/dashboard_nightmode.png" width = "250" height = "515">
 
 This is the app's main dashboard to navigate to different activities within the app.<br>
 1. Let's Play! - It navigates the user to the tic tac toe playing board.<br>
@@ -20,7 +20,7 @@ This is the app's main dashboard to navigate to different activities within the 
 
 ## TicTacToe Board
 <img src="Images/custom_player_name.png" width = "250" height = "515"> <img src="Images/playing_board.png" width = "250" height = "515"> 
-<img src="Images/player_won.png" width = "250" height = "515">
+<img src="Images/gameboard_nightmode.png" width = "250" height = "515">
 
 This is the playing board for the app. A button array consitutes the major part of this board, on which players can press to place their move and the scores are updated and
 displayed at the end of every game and board automatically resets. Also, user can reset manually or save the game score by pressing the respective buttons provided. Reset and 
@@ -28,12 +28,12 @@ Save & Reset button resets the board as well as the score board. Players can ent
 activity is created. 
 
 ## Game History 
-<img src="Images/game_history.png" width = "250" height = "515"> <br>
+<img src="Images/game_history.png" width = "250" height = "515"> <img src="Images/history_nightmode.png" width = "250" height = "515"><br>
 The scores of the games played are stored with the help of Room Database and the stored data is displayed in the RecylerView and the CardView. Along with scores, name of player
 won or draw declaration is also displayed. A particular game history can be deleted from the database by clicking the delete icon.<br>
 
 ## Settings
-<img src="Images/settings.png" width = "250" height = "515"> <br>
+<img src="Images/settings.png" width = "250" height = "515"><img src="Images/settings_nightmode.png" width = "250" height = "515"> <br>
 <I>Theme</I> changes the app theme either light or dark as per user's wish.<br>
 <I>Contact Us</I> you can contact the developers and maintainers of this application for the feedback.<br>
 <I>App Info</I> provides the information of this app.<br>
