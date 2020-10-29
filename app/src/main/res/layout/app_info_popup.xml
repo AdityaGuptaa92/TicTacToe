@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/custom_popup_button"
             android:text="Close"
             android:textSize="15sp"
             android:textAllCaps="false"

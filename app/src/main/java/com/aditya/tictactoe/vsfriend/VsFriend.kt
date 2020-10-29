@@ -9,8 +9,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.aditya.tictactoe.homepage.Dashboard
 import com.aditya.tictactoe.R
+import com.aditya.tictactoe.homepage.Dashboard
+import com.aditya.tictactoe.homepage.SharedPrefForNightMode
 import com.aditya.tictactoe.vsfriend.frienddb.BaseActivity
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryDao
 import com.aditya.tictactoe.vsfriend.frienddb.FriendHistoryData
@@ -20,7 +21,7 @@ import kotlinx.coroutines.launch
 
 class VsFriend : BaseActivity(), View.OnClickListener {
 
-
+    private lateinit var sharedPrefForNightMode: SharedPrefForNightMode
     private val buttons = Array(3) { arrayOfNulls<Button>(3) }
     private var player1Turn = true
     private var roundCount = 0
@@ -34,6 +35,12 @@ class VsFriend : BaseActivity(), View.OnClickListener {
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        sharedPrefForNightMode = SharedPrefForNightMode(this)
+        if (sharedPrefForNightMode.loadNightModeState()) {
+            setTheme(R.style.DarkTheme)
+        } else setTheme(R.style.AppTheme)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_friend)
 
@@ -84,7 +91,11 @@ class VsFriend : BaseActivity(), View.OnClickListener {
         }
         customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
             val intent = Intent(this, Dashboard::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finish()
         }
         //DialogBox Ends
 
@@ -101,7 +112,6 @@ class VsFriend : BaseActivity(), View.OnClickListener {
 
         val buttonSaveHistory = findViewById<Button>(R.id.button_save_reset_friend)
         buttonSaveHistory.setOnClickListener {
-
             launch {
                 val friendHistoryData = FriendHistoryData(p1, p2, player1Points, player2Points)
 
@@ -134,7 +144,10 @@ class VsFriend : BaseActivity(), View.OnClickListener {
                 Toast.makeText(baseContext, "History Saved", Toast.LENGTH_SHORT).show()
             }
             val intent = Intent(this, Dashboard::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
     }
 
@@ -243,6 +256,20 @@ class VsFriend : BaseActivity(), View.OnClickListener {
         player1Points = savedInstanceState.getInt("player1Points")
         player2Points = savedInstanceState.getInt("player2Points")
         player1Turn = savedInstanceState.getBoolean("player1Turn")
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this,Dashboard::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }
 

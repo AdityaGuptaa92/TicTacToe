@@ -7,24 +7,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
         android:padding="8dp">
 
         <TextView
             android:id="@+id/history_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Game History"
-            android:textSize="45sp"
+            android:fontFamily="@font/bangers"
             android:gravity="center"
+            android:text="Game History"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:fontFamily="@font/bangers"/>
+            android:textColor="?attr/textColor"
+            android:textSize="45sp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/friend_history_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/friend_history_item"
-            android:layout_below="@id/history_title">
+            android:layout_below="@id/history_title"
+            tools:listitem="@layout/friend_history_item">
 
         </androidx.recyclerview.widget.RecyclerView>
 

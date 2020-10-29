@@ -143,7 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/custom_popup_button"
         android:text="Close"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"

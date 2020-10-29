@@ -1,5 +1,7 @@
 package com.aditya.tictactoe.adapters
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
@@ -7,16 +9,21 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Switch
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.aditya.tictactoe.R
 import com.aditya.tictactoe.homepage.Settings
+import com.aditya.tictactoe.homepage.SharedPrefForNightMode
 
 
 class SettingsAdapter(private val mContext: Context) :
     RecyclerView.Adapter<SettingsAdapter.SettingsViewHolder>() {
 
-    private lateinit var radioButton: RadioButton
+
+    private var sharedPrefForNightMode = SharedPrefForNightMode(mContext)
     private val settingsTitles = arrayOf("Theme", "Contact Us", "App Info")
     private val settingsIcons =
         arrayOf(R.drawable.ic_brightness96, R.drawable.ic_contact96, R.drawable.ic_info96)
@@ -72,31 +79,55 @@ class SettingsAdapter(private val mContext: Context) :
 
         githubLink.setOnClickListener {
             val urlGithub = "https://github.com/AdityaGuptaa92/TicTacToe"
-            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(urlGithub))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlGithub))
             context.startActivity(intent)
         }
 
         mailLink.setOnClickListener {
             val urlMail = "adityagupta3214@gmail.com"
-            val intent = Intent(Intent.ACTION_VIEW,Uri.parse("mailto:$urlMail"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$urlMail"))
             context.startActivity(intent)
         }
 
         linkedInLink.setOnClickListener {
             val urlLinkedIn = "https://www.linkedin.com/in/aditya-gupta-646220191"
-            val intent = Intent(Intent.ACTION_VIEW,Uri.parse(urlLinkedIn))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlLinkedIn))
             context.startActivity(intent)
         }
     }
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private fun theme(context: Context) {
         val themeDialog = Dialog(context)
-        themeDialog.setContentView(R.layout.theme)
+        themeDialog.setContentView(R.layout.theme_popup)
         themeDialog.show()
-        val themeRadioGroup = themeDialog.findViewById<RadioGroup>(R.id.theme_radio_group)
+        val themeTitle = themeDialog.findViewById<TextView>(R.id.theme_title)
         val closeTheme = themeDialog.findViewById<Button>(R.id.close_theme)
         closeTheme.setOnClickListener {
             themeDialog.dismiss()
         }
+        val switch = themeDialog.findViewById<Switch>(R.id.dark_mode_switch)
+        if(sharedPrefForNightMode.loadNightModeState()) {
+            switch.isChecked = true
+            themeTitle.text = "Disable Night Mode"
+        }
+        switch.setOnCheckedChangeListener { _, _ ->
+            if (switch.isChecked) {
+                sharedPrefForNightMode.setNightModeState(true)
+                themeTitle.text = "Disable Night Mode"
+                restartSettings()
+            } else {
+                sharedPrefForNightMode.setNightModeState(false)
+                themeTitle.text = "Enable Night Mode"
+                restartSettings()
+            }
+        }
+    }
+
+    private fun restartSettings() {
+        mContext.startActivity(Intent(mContext, Settings::class.java))
+        (mContext as Activity).overridePendingTransition(0, 0)
+        mContext.finish()
+        mContext.overridePendingTransition(0, 0)
     }
 }

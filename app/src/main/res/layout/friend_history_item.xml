@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        tools:visibility="visible">
+        tools:visibility="visible"
+        android:background="?attr/cardBackgroundColor">
 
 
         <TextView
@@ -25,6 +26,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/roboto_mono"
             android:text="AAAAAAAA"
+            android:textColor="?attr/textColor"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
@@ -41,7 +43,7 @@
             android:text="Vs"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             android:textStyle="italic"
             app:layout_constraintBaseline_toBaselineOf="@id/text_view_player_one_name"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,6 +59,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono"
             android:text="AAAAAAAA"
+            android:textColor="?attr/textColor"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
@@ -72,6 +75,7 @@
             android:layout_marginEnd="100dp"
             android:fontFamily="@font/roboto_mono"
             android:text="Score:100-100"
+            android:textColor="?attr/textColor"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +89,7 @@
             android:fontFamily="@font/roboto_mono"
             android:text="AAAAAAAA won!"
             android:textAlignment="center"
+            android:textColor="?attr/textColor"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

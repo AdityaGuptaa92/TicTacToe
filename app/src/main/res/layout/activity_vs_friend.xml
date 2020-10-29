@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".vsfriend.VsFriend"
-    android:padding="2dp">
+    android:padding="2dp"
+    android:background="?attr/backgroundColor">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/score_board_friend"
@@ -15,7 +16,8 @@
         app:layout_constraintBottom_toTopOf="@+id/playing_board_friend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/backgroundColor">
 
         <TextView
             android:id="@+id/field_player1"
@@ -27,7 +29,7 @@
             android:fontFamily="@font/roboto_mono"
             android:freezesText="true"
             android:text="Player:0"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             android:textSize="22sp"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintHorizontal_bias="0.656"
@@ -41,7 +43,7 @@
             android:layout_marginStart="200dp"
             android:layout_marginTop="120dp"
             android:layout_marginEnd="200dp"
-            android:background="@android:color/black"
+            android:background="?attr/viewBackgroundColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +57,7 @@
             android:fontFamily="@font/roboto_mono"
             android:freezesText="true"
             android:text="Player:0"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             android:textSize="22sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/field_player1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +73,7 @@
             android:fontFamily="@font/roboto_mono"
             android:text="Reset"
             android:textAllCaps="false"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             app:layout_constraintBaseline_toBaselineOf="@+id/button_save_exit_friend"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -87,7 +89,7 @@
             android:padding="3dp"
             android:text="Save &amp; Reset"
             android:textAllCaps="false"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +103,7 @@
             android:fontFamily="@font/bangers"
             android:gravity="center"
             android:text="Tic Tac Toe"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/textColor"
             android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,6 +120,7 @@
             android:fontFamily="@font/roboto_mono"
             android:text="Save &amp; Exit"
             android:textAllCaps="false"
+            android:textColor="?attr/textColor"
             app:layout_constraintBaseline_toBaselineOf="@+id/button_save_reset_friend"
             app:layout_constraintEnd_toStartOf="@+id/button_reset_friend"
             app:layout_constraintStart_toEndOf="@+id/button_save_reset_friend" />
@@ -150,6 +153,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -163,6 +167,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -176,6 +181,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
         </LinearLayout>
 
@@ -197,6 +203,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -210,6 +217,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -223,6 +231,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
         </LinearLayout>
 
@@ -243,6 +252,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -255,6 +265,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
 
             <Button
@@ -267,6 +278,7 @@
                 android:background="@drawable/custom_button_tictactoe_keys"
                 android:fontFamily="@font/roboto_mono"
                 android:freezesText="true"
+                android:textColor="?attr/textColor"
                 android:textSize="60sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

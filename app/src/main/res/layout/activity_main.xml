@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".homepage.MainActivity"
-    android:background="#FFFFFF">
+    android:background="#ffffff">
 
     <ImageView
         android:id="@+id/imageView"
@@ -29,7 +29,7 @@
         android:text="Tic Tac Toe"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="#000000"
         android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
