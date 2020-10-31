@@ -126,8 +126,8 @@ class SettingsAdapter(private val mContext: Context) :
 
     private fun restartSettings() {
         mContext.startActivity(Intent(mContext, Settings::class.java))
-        (mContext as Activity).overridePendingTransition(0, 0)
+        (mContext as Activity).overridePendingTransition(R.anim.fadein, R.anim.fadeout)
         mContext.finish()
-        mContext.overridePendingTransition(0, 0)
+        mContext.overridePendingTransition(R.anim.fadein, R.anim.fadeout)
     }
 }
