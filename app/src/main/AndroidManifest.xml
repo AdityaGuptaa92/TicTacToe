@@ -11,10 +11,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".homepage.Settings"
+            android:screenOrientation="portrait"
             android:theme="@style/WindowAnimationTransition" />
-        <activity android:name=".vsfriend.VsFriendHistory" />
-        <activity android:name=".vsfriend.VsFriend" />
-        <activity android:name=".homepage.Dashboard" />
+        <activity
+            android:name=".vsfriend.VsFriendHistory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".vsfriend.VsFriend"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".homepage.Dashboard"
+            android:screenOrientation="portrait" />
         <activity android:name=".homepage.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
