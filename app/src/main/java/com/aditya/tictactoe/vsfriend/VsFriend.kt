@@ -54,6 +54,7 @@ class VsFriend : BaseActivity(), View.OnClickListener {
         val player1 = dialogView.findViewById<EditText>(R.id.player1_name)
         val player2 = dialogView.findViewById<EditText>(R.id.player2_name)
         dialog.setView(dialogView)
+        dialog.setCancelable(false)
         dialog.setPositiveButton("Let's Play!!") { _, _ -> }
         dialog.setNegativeButton("Cancel") { _, _ -> }
         val customDialog = dialog.create()

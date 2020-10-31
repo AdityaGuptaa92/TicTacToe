@@ -100,6 +100,7 @@ class SettingsAdapter(private val mContext: Context) :
     private fun theme(context: Context) {
         val themeDialog = Dialog(context)
         themeDialog.setContentView(R.layout.theme_popup)
+        themeDialog.setCancelable(false)
         themeDialog.show()
         val themeTitle = themeDialog.findViewById<TextView>(R.id.theme_title)
         val closeTheme = themeDialog.findViewById<Button>(R.id.close_theme)
