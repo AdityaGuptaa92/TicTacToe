@@ -26,6 +26,7 @@ class Settings : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+
         settingsAdapter = SettingsAdapter(this)
         settingsRecyclerView = findViewById(R.id.settings_recycler_view)
         settingsRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -37,9 +38,10 @@ class Settings : AppCompatActivity() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this,Dashboard::class.java)
+        val intent = Intent(this, Dashboard::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)

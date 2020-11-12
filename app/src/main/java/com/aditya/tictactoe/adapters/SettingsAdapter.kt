@@ -122,8 +122,10 @@ class SettingsAdapter(private val mContext: Context) :
                 themeTitle.text = "Enable Night Mode"
                 restartSettings()
             }
+            themeDialog.dismiss()
         }
     }
+
 
     private fun restartSettings() {
         mContext.startActivity(Intent(mContext, Settings::class.java))
@@ -131,4 +133,5 @@ class SettingsAdapter(private val mContext: Context) :
         mContext.finish()
         mContext.overridePendingTransition(R.anim.fadein, R.anim.fadeout)
     }
+
 }
